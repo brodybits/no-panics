@@ -1,17 +1,25 @@
-\#\[no\_panic\]
-===============
+\#\[no\_panics\]
+================
 
+<!--
 [<img alt="github" src="https://img.shields.io/badge/github-dtolnay/no--panic-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/dtolnay/no-panic)
 [<img alt="crates.io" src="https://img.shields.io/crates/v/no-panic.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/no-panic)
 [<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-no--panic-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/no-panic)
 [<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/dtolnay/no-panic/ci.yml?branch=master&style=for-the-badge" height="20">](https://github.com/dtolnay/no-panic/actions?query=branch%3Amaster)
+- -->
+
+**A fork of `no-panic` with support for async functions**
 
 A Rust attribute macro to require that the compiler prove a function can't ever
 panic.
 
+## Usage
+
+with an alias:
+
 ```toml
 [dependencies]
-no-panic = "0.1"
+no-panic = { package = "no-panic", version = "0.0" }
 ```
 
 ```rust
@@ -58,7 +66,7 @@ _panic_demo..demo..__NoPanic$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72f8f42
 The error is not stellar but notice the ERROR\[no-panic\] part at the end that
 provides the name of the offending function.
 
-*Compiler support: requires rustc 1.31+*
+*Compiler support: requires rustc 1.39+*
 
 <br>
 
@@ -102,6 +110,8 @@ wrapping that call in an `unsafe extern "C"` wrapper.
 <br>
 
 ### Acknowledgments
+
+Based on: <https://github.com/dtolnay/no-panic>
 
 The linker error technique is based on [Kixunil]'s crate [`dont_panic`]. Check
 out that crate for other convenient ways to require absence of panics.
