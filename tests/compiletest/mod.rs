@@ -17,7 +17,7 @@ pub fn contains_panic(name: &str, code: &str) -> bool {
     let tempdir = tempfile::tempdir().unwrap();
 
     let prelude = stringify! {
-        use no_panic::no_panic;
+        use no_panics::no_panic;
     };
 
     let rs = tempdir.path().join(format!("{}.rs", name));
@@ -35,8 +35,9 @@ pub fn contains_panic(name: &str, code: &str) -> bool {
         .arg(tempdir.path())
         .arg("--extern")
         .arg(format!(
-            "no_panic=target/debug/{prefix}no_panic.{extension}",
+            "no_panics=target/debug/{prefix}{name}.{extension}",
             prefix = std::env::consts::DLL_PREFIX,
+            name = str::replace(env!("CARGO_PKG_NAME"), "-", "_"),
             extension = std::env::consts::DLL_EXTENSION,
         ))
         .status()
@@ -50,7 +51,7 @@ pub fn contains_panic(name: &str, code: &str) -> bool {
 
 macro_rules! assert_no_panic {
     ($(mod $name:ident { $($content:tt)* })*) => {
-        mod no_panic {
+        mod no_panics {
             use crate::compiletest;
             $(
                 #[test]

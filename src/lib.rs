@@ -1,8 +1,10 @@
-//! [![github]](https://github.com/dtolnay/no-panic)&ensp;[![crates-io]](https://crates.io/crates/no-panic)&ensp;[![docs-rs]](https://docs.rs/no-panic)
+//! [![github]](https://github.com/brodybits/no-panics)&ensp;[![crates-io]](https://crates.io/crates/no-panics)&ensp;[![docs-rs]](https://docs.rs/no-panics)
 //!
 //! [github]: https://img.shields.io/badge/github-8da0cb?style=for-the-badge&labelColor=555555&logo=github
 //! [crates-io]: https://img.shields.io/badge/crates.io-fc8d62?style=for-the-badge&labelColor=555555&logo=rust
 //! [docs-rs]: https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs
+//!
+//! <b>A fork of no-panic with support for async functions</b>
 //!
 //! <br>
 //!
@@ -11,11 +13,11 @@
 //!
 //! ```toml
 //! [dependencies]
-//! no-panic = "0.1"
+//! no-panics = "0.0.1"
 //! ```
 //!
 //! ```
-//! use no_panic::no_panic;
+//! use no_panics::no_panic;
 //!
 //! #[no_panic]
 //! fn demo(s: &str) -> &str {

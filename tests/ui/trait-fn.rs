@@ -1,4 +1,4 @@
-use no_panic::no_panic;
+use no_panics::no_panic;
 
 trait Trait {
     #[no_panic]
